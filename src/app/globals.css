@@ -1976,3 +1976,12 @@ html {
 .about-content h2 {
   line-height: 1;
 }
+
+/* ===== FIX MOBILE HERO TITLE HIGHER ===== */
+@media (max-width: 640px) {
+  .hero-title {
+    top: 10% !important;
+    z-index: 9 !important;
+  }
+  
+}
