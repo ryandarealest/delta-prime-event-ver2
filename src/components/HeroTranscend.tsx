@@ -1,17 +1,21 @@
+"use client";
+
+import { useState } from "react";
 import Image from "next/image";
+
 export default function HeroTranscend() {
+  const [menuOpen, setMenuOpen] = useState(false);
+
+  const closeMenu = () => setMenuOpen(false);
+
   return (
     <main className="site-shell">
       <section className="hero" aria-label="Delta Prime Event - công ty tổ chức sự kiện tại Đà Nẵng">
-        {/* LAYER 1: background gốc - thay ảnh tại public/images/bg.jpg */}
         <div className="layer layer-bg" />
-
-        {/* atmospheric layers */}
         <div className="layer layer-vignette" />
         <div className="layer layer-nebula" />
         <div className="layer layer-grain" />
 
-        {/* UI layer */}
         <header className="topbar">
           <a href="#" className="brand-logo" aria-label="Delta Prime Event home">
             <Image
@@ -35,20 +39,50 @@ export default function HeroTranscend() {
             <button aria-label="Search" className="search-icon" />
             <a href="#contact" className="explore">GET A QUOTE</a>
           </div>
+
+          <button
+            type="button"
+            className="mobile-menu-btn"
+            aria-label="Open menu"
+            onClick={() => setMenuOpen(true)}
+          >
+            ☰
+          </button>
         </header>
 
-        {/* LAYER 2: chữ nền */}
+        <div
+          className={`sidebar-overlay ${menuOpen ? "open" : ""}`}
+          onClick={closeMenu}
+        />
+
+        <aside className={`mobile-sidebar ${menuOpen ? "open" : ""}`}>
+          <button
+            type="button"
+            className="mobile-close-btn"
+            aria-label="Close menu"
+            onClick={closeMenu}
+          >
+            ×
+          </button>
+
+          <a href="#events" onClick={closeMenu}>EVENTS</a>
+          <a href="#services" onClick={closeMenu}>SERVICES</a>
+          <a href="#about" onClick={closeMenu}>ABOUT</a>
+          <a href="#contact" onClick={closeMenu}>CONTACT</a>
+          <a href="#contact" className="sidebar-quote" onClick={closeMenu}>
+            GET A QUOTE
+          </a>
+        </aside>
+
         <h1 className="hero-title">
           <span className="title-left">DELTA</span>
           <span className="title-right">PRIME</span>
         </h1>
 
-        {/* LAYER 3: ảnh người PNG tách nền - thay ảnh tại public/images/person.png */}
         <div className="person-wrap" aria-hidden="true">
           <div className="person" />
         </div>
 
-        {/* text content cùng cấp layer với người */}
         <aside className="left-copy">
           <p className="copy-title">Event Experiences in Da Nang</p>
           <p className="copy-body">
@@ -58,6 +92,7 @@ export default function HeroTranscend() {
 
         <p className="credit">@delta.prime</p>
       </section>
+
       <div className="section-divider" />
     </main>
   );
