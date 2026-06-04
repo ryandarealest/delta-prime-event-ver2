@@ -7,12 +7,14 @@ import { useEffect } from "react";
 export default function HeroTranscend() {
   const [menuOpen, setMenuOpen] = useState(false);
   useEffect(() => {
-  document.body.classList.toggle("menu-open", menuOpen);
+    document.documentElement.classList.toggle("menu-open", menuOpen);
+    document.body.classList.toggle("menu-open", menuOpen);
 
-  return () => {
-    document.body.classList.remove("menu-open");
-  };
-}, [menuOpen]);
+    return () => {
+      document.documentElement.classList.remove("menu-open");
+      document.body.classList.remove("menu-open");
+    };
+  }, [menuOpen]);
 
   const closeMenu = () => setMenuOpen(false);
 
@@ -48,7 +50,7 @@ export default function HeroTranscend() {
             <a href="#contact" className="explore">GET A QUOTE</a>
           </div>
 
-          
+
         </header>
 
         <h1 className="hero-title">
@@ -70,13 +72,13 @@ export default function HeroTranscend() {
         <p className="credit">@delta.prime</p>
       </section>
       <button
-            type="button"
-            className="mobile-menu-btn"
-            aria-label="Open menu"
-            onClick={() => setMenuOpen(true)}
-          >
-            ☰
-          </button>
+        type="button"
+        className="mobile-menu-btn"
+        aria-label="Open menu"
+        onClick={() => setMenuOpen(true)}
+      >
+        ☰
+      </button>
       <div
         className={`sidebar-overlay ${menuOpen ? "open" : ""}`}
         onClick={closeMenu}
