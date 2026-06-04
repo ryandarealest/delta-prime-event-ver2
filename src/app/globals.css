@@ -1954,7 +1954,7 @@ body {
   transform: none !important;
 }
 
-html {
+html:not(.menu-open) {
   scroll-behavior: smooth;
 }
 
@@ -1990,7 +1990,6 @@ html {
 }
 
 @media (max-width: 768px) {
-
   .nav-left,
   .nav-right {
     display: none !important;
@@ -2008,15 +2007,15 @@ html {
     padding: 0 !important;
 
     border: none !important;
-    border-radius: 0 !important;
     background: transparent !important;
 
     color: #fff !important;
     font-size: 28px !important;
     line-height: 1 !important;
-    text-shadow: 0 0 12px rgba(0, 0, 0, .8);
+    text-shadow: 0 0 12px rgba(0,0,0,.8);
   }
 
+  html.menu-open .mobile-menu-btn,
   body.menu-open .mobile-menu-btn {
     display: none !important;
   }
@@ -2026,8 +2025,10 @@ html {
     position: fixed !important;
     inset: 0 !important;
     z-index: 99998 !important;
-    background: rgba(0, 0, 0, .62) !important;
+
+    background: rgba(0,0,0,.62) !important;
     backdrop-filter: blur(2px);
+
     opacity: 0;
     pointer-events: none;
     transition: opacity .3s ease;
@@ -2041,21 +2042,23 @@ html {
   .mobile-sidebar {
     display: block !important;
     position: fixed !important;
-    top: 0 !important;
-    right: 0 !important;
-    z-index: 99999 !important;
+    inset: 0 0 0 auto !important;
 
     width: 78%;
     max-width: 320px;
-    height: 100dvh;
-    padding: 88px 26px 30px;
 
-    background: rgba(7, 7, 14, .98) !important;
+    z-index: 99999 !important;
+    padding: 88px 26px calc(30px + env(safe-area-inset-bottom));
+
+    background: rgba(7,7,14,.98) !important;
     backdrop-filter: blur(18px);
-    box-shadow: -18px 0 50px rgba(0, 0, 0, .55);
+    box-shadow: -18px 0 50px rgba(0,0,0,.55);
 
     transform: translateX(100%);
     transition: transform .35s ease;
+
+    overflow-y: auto;
+    overscroll-behavior: contain;
   }
 
   .mobile-sidebar.open {
@@ -2075,7 +2078,7 @@ html {
     font-family: var(--font-body), sans-serif;
     font-size: 15px;
     font-weight: 800;
-    border-bottom: 1px solid rgba(255, 255, 255, .12);
+    border-bottom: 1px solid rgba(255,255,255,.12);
   }
 
   .sidebar-quote {
@@ -2089,6 +2092,7 @@ html {
   html.menu-open,
   body.menu-open {
     overflow: hidden !important;
+    overscroll-behavior: none !important;
     touch-action: none !important;
   }
 }
