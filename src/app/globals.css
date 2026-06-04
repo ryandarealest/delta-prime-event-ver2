@@ -1983,5 +1983,7 @@ html {
     top: 10% !important;
     z-index: 9 !important;
   }
-  
+   .person-wrap {
+    bottom: -1.95vh !important;
+  }
 }
