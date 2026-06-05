@@ -2309,6 +2309,34 @@ html:not(.menu-open) {
     transform: none !important;
   }
 
+  .brand-logo {
+  width: 46px !important;
+  height: 46px !important;
+  min-width: 46px !important;
+}
+
+.brand-logo img {
+  width: 46px !important;
+  height: 46px !important;
+}
+
+.brand-text {
+  width: 120px !important;
+  min-width: 120px !important;
+  max-width: 120px !important;
+}
+
+.brand-name {
+  width: 120px !important;
+  font-size: 20px !important;
+}
+
+.brand-sub {
+  width: 92px !important;
+  font-size: 8px !important;
+  margin-top: 4px !important;
+}
+
   @media (max-width: 768px) {
 
   .brand-wrap {
@@ -2352,3 +2380,4 @@ html:not(.menu-open) {
   }
 }
 }
+
