@@ -18,7 +18,7 @@ export default function AboutGlow() {
           <p className="eyebrow">ABOUT</p>
         </Reveal>
         <Reveal>
-          <h2>ABOUT DELTA PRIME EVENT</h2>
+          <h2>ABOUT <br /> DELTA PRIME EVENT</h2>
         </Reveal>
         <Reveal>
           <p className="about-lead">Delta Prime Event là đơn vị tổ chức sự kiện tại Đà Nẵng, chuyên event production, concept, sân khấu, âm thanh ánh sáng, nhân sự vận hành và trải nghiệm thương hiệu.</p>
