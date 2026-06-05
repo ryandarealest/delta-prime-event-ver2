@@ -980,7 +980,7 @@ button {
 
   padding-top: 24px;
 
-  border-top: 1px solid rgba(255, 255, 255, .14);
+  border-top: none;
 
   text-align: center;
 
@@ -988,6 +988,32 @@ button {
   font-size: 13px;
 
   color: rgba(255, 255, 255, .62);
+}
+
+.footer-bottom::before {
+  content: "";
+
+  position: absolute;
+
+  top: 0;
+  left: 0;
+  right: 0;
+
+  height: 1px;
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      #7b2cff,
+      #d95fff,
+      #7b2cff,
+      transparent
+    );
+
+  box-shadow:
+    0 0 8px rgba(123,44,255,.6),
+    0 0 18px rgba(217,95,255,.35);
 }
 
 .reveal-up {
@@ -2085,4 +2111,244 @@ html:not(.menu-open) {
     background: linear-gradient(135deg, #b44cff, #e07cff) !important;
     color: #ffffff !important;
   }
+}
+
+/* ===== BRAND ===== */
+
+.brand-wrap {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+
+  margin-left: -25px; /* kéo logo sang trái */
+}
+
+.brand-logo {
+  flex-shrink: 0;
+}
+
+.brand-text {
+  display: flex;
+  flex-direction: column;
+  line-height: 1;
+}
+
+.brand-name {
+  font-family: var(--font-heading), sans-serif;
+  font-size: 24px;
+  font-weight: 400;
+  letter-spacing: 0.04em;
+
+  color: #ffffff;
+
+  text-shadow:
+    0 0 10px rgba(255,255,255,.18),
+    0 0 20px rgba(170,75,255,.22);
+}
+
+.brand-sub {
+  margin-top: 3px;
+
+  font-family: var(--font-body), sans-serif;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.45em;
+
+  color: rgba(255,255,255,.55);
+}
+
+/* desktop */
+@media (min-width: 769px) {
+
+  .topbar {
+    grid-template-columns:
+      320px
+      1fr
+      auto !important;
+  }
+
+  .nav-left {
+    justify-content: center;
+  }
+}
+
+/* mobile */
+@media (max-width: 768px) {
+
+  .brand-wrap {
+    margin-left: -8px;
+    gap: 10px;
+  }
+
+  .brand-name {
+    font-size: 16px;
+  }
+
+  .brand-sub {
+    font-size: 8px;
+    letter-spacing: 0.25em;
+  }
+}
+
+@media (max-width: 768px) {
+  .sidebar-brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    margin-bottom: 32px;
+    padding-bottom: 22px;
+
+    border-bottom: 1px solid rgba(255, 255, 255, .12);
+  }
+
+  .sidebar-brand img {
+    width: 46px !important;
+    height: auto !important;
+    object-fit: contain !important;
+
+    filter:
+      drop-shadow(0 0 10px rgba(255,255,255,.25))
+      drop-shadow(0 0 18px rgba(190,80,255,.25));
+  }
+
+}
+
+/* ===== FIXED BRAND LOGO + TEXT ===== */
+
+.brand-wrap,
+.sidebar-brand {
+  display: flex !important;
+  align-items: center !important;
+  gap: 18px !important;
+}
+
+.brand-wrap {
+  width: 285px !important;
+  min-width: 285px !important;
+  max-width: 285px !important;
+}
+
+/* LOGO */
+
+.brand-logo,
+.sidebar-brand img {
+  width: 70px !important;
+  height: 70px !important;
+  min-width: 70px !important;
+}
+
+.brand-logo img,
+.sidebar-brand img {
+  width: 70px !important;
+  height: 70px !important;
+  object-fit: contain !important;
+}
+
+/* TEXT CONTAINER */
+
+.brand-text,
+.sidebar-brand-text {
+  width: 172px !important;
+  min-width: 172px !important;
+  max-width: 172px !important;
+
+  display: flex !important;
+  flex-direction: column !important;
+  line-height: 1 !important;
+}
+
+/* DELTA PRIME */
+
+.brand-name,
+.sidebar-brand-text > span {
+  display: block !important;
+  width: 172px !important;
+
+  font-family: var(--font-heading), Impact, sans-serif !important;
+  font-size: 29px !important;
+  font-weight: 400 !important;
+  line-height: 0.95 !important;
+  letter-spacing: 0.02em !important;
+
+  white-space: nowrap !important;
+  color: #ffffff !important;
+}
+
+/* GROUP */
+
+.brand-sub,
+.sidebar-brand-sub {
+  width: 138px !important;
+  margin-top: 8px !important;
+  margin-left: 2px !important;
+
+  display: flex !important;
+  justify-content: space-between !important;
+
+  font-family: var(--font-body), sans-serif !important;
+  font-size: 12px !important;
+  font-weight: 900 !important;
+  line-height: 1 !important;
+  letter-spacing: 0 !important;
+
+  color: rgba(255,255,255,.7) !important;
+}
+
+.brand-sub span,
+.sidebar-brand-sub span {
+  display: block !important;
+}
+
+/* ===== MOBILE ===== */
+
+@media (max-width: 768px) {
+
+  .brand-wrap {
+    margin-left: 0 !important;
+    transform: none !important;
+  }
+
+  @media (max-width: 768px) {
+
+  .brand-wrap {
+    margin-left: 0 !important;
+    transform: none !important;
+  }
+
+  .sidebar-brand {
+    position: relative !important;
+
+    margin-bottom: 30px !important;
+    padding-bottom: 18px !important;
+
+    border-bottom: none !important;
+  }
+
+  .sidebar-brand::after {
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+    right: 0;
+    bottom: 0;
+
+    height: 2px;
+
+    background:
+      linear-gradient(
+        90deg,
+        transparent,
+        #7b2cff,
+        #d95fff,
+        #7b2cff,
+        transparent
+      );
+
+    box-shadow:
+      0 0 8px rgba(123,44,255,.6),
+      0 0 18px rgba(217,95,255,.35);
+  }
+}
 }
