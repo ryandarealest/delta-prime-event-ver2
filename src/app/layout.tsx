@@ -60,6 +60,9 @@ export const metadata: Metadata = {
       "Giải pháp tổ chức sự kiện doanh nghiệp, hội nghị, activation, roadshow và gala dinner tại Đà Nẵng.",
     images: [absoluteUrl("/images/bg.jpg")],
   },
+  icons: {
+    icon: "/images/logoexport.png",
+  },
   robots: {
     index: true,
     follow: true,
